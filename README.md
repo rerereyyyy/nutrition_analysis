@@ -26,7 +26,11 @@ pip install -r requirements.txt
 ```
 
 3. .envファイルを作成し、APIキーを設定
+
+
 EDAMAM_API_KEY=your_api_key
+
+
 EDAMAM_API_ID=your_app_id
 
 4. アプリケーションを起動
