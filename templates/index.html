@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栄養分析アプリ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>栄養分析</h1>
+        <form method="post">
+            <label for="ingredients">材料と分量を入力</label><br>
+            <textarea id="ingredients" name="ingredients" rows="4" cols="50" placeholder="例：Chiken, 200g; Rice, 100g"></textarea><br><br>
+            <button type="submit">分析する</button>
+        </form>
+        {% if result %}
+            <h2>分析結果:</h2>
+            <ul>
+                <li>カロリー：{{ result.calories }}</li>
+                <li>タンパク質：{{ result.protein }}</li>
+                <li>炭水化物：{{ result.carbohydrates }}</li>
+                <li>脂肪：{{ result.fat }}</li>
+            </ul>
+        {% endif %}
+        {% if result.error %}
+            <p>{{ result.error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
